@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-  <head charset="UTF-8">
-    <title>Navigation Menu</title>
-  </head>
+<meta>
+<meta charset="UTF-8">
+<title>Student Registration Form</title>
+</meta>
 
 <body>
 
-  <!-- Semantic Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://www.uetpeshawar.edu.pk" target="_blank">UET Website</a></li>
-    </ul>
-  </nav>
+  <h1>Student Registration Form</h1>
+  -
+  <form>
 
-  <!-- Internal Sections -->
-  <section id="home">
-    <h2>Home</h2>
-    <p>Welcome to our website.</p>
-  </section>
+    <!-- Text Inputs -->
+    <label>Full Name:</label><br>
+    <input type="text" name="fullname" required><br><br>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>This page demonstrates internal and external navigation links.</p>
-  </section>
+    <label>Registration Number:</label><br>
+    <input type="text" name="regno" required><br><br>
 
-  <section id="courses">
-    <h2>Courses</h2>
-    <p>Web Technologies, OOP, Database Systems.</p>
-  </section>
+    <!-- Email and Password -->
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email us for more information.</p>
-  </section>
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <!-- Dropdown -->
+    <label>Select Course:</label><br>
+    <select name="course">
+      <option>Web Technologies</option>
+      <option>Object Oriented Programming</option>
+      <option>Database Systems</option>
+    </select><br><br>
+
+    <label>Semester:</label><br>
+    <input type="radio" name="semester" value="1"> 1st Semester<br>
+    <input type="radio" name="semester" value="2"> 2nd Semester<br>
+    <input type="radio" name="semester" value="3"> 3rd Semester<br><br>
+
+    <input type="checkbox" name="terms" required>
+    I agree to the terms and conditions<br><br>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Register">
+
+  </form>
 
 </body>
 
