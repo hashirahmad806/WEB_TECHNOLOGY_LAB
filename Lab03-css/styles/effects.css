@@ -1,0 +1,17 @@
+.color-box{
+height:200px;
+background-color:lightblue;
+margin:20px;
+}
+
+.gradient-box{
+height:200px;
+background:linear-gradient(to right, red, yellow);
+margin:20px;
+}
+
+.black-box{
+height:200px;background-color:black;
+margin:20px;
+color:white
+}

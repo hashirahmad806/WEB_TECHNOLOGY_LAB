@@ -1,0 +1,98 @@
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+padding:30px;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:30px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Font families */
+
+.roboto{
+font-family:'Roboto', sans-serif;
+}
+
+.poppins{
+font-family:'Poppins', sans-serif;
+}
+
+.playfair{
+font-family:'Playfair Display', serif;
+}
+
+/* Font sizes */
+
+.small{
+font-size:14px;
+}
+
+.medium{
+font-size:20px;
+}
+
+.large{
+font-size:30px;
+}
+
+/* Alignment */
+
+.left{
+text-align:left;
+}
+
+.center{
+text-align:center;
+}
+
+.right{
+text-align:right;
+}
+
+/* Transform */
+
+.uppercase{
+text-transform:uppercase;
+}
+
+.lowercase{
+text-transform:lowercase;
+}
+
+.capitalize{
+text-transform:capitalize;
+}
+
+/* Spacing */
+
+.spacing{
+letter-spacing:2px;
+line-height:1.8;
+}
+
+/* Decoration */
+
+.underline{
+text-decoration:underline;
+}
+
+.line-through{
+text-decoration:line-through;
+}
+
+/* Shadow */
+
+.shadow{
+font-size:26px;
+text-shadow:2px 2px 5px gray;
+}
