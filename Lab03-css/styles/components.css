@@ -59,3 +59,29 @@ img:hover{
 .img-box:hover .overlay{
     opacity:1;
 }
+
+
+.cards{
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+.card{
+width:250px;
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+
+
+
+
+

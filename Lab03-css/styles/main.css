@@ -132,3 +132,235 @@ padding:20px;
 margin-top:40px;
 background:#f0f0f0;
 }
+
+
+.btn{
+padding:10px 20px;
+border:none;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.primary{background:blue;color:white;}
+.success{background:green;color:white;}
+.danger{background:rgb(240, 4, 4);color:white;}
+
+.round{
+border-radius:30px;
+background:black;
+color:white;
+}
+
+.gradient{
+background:linear-gradient(45deg,rgb(28, 23, 28),orange);
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
+.disabled{
+background:gray;
+cursor:not-allowed;
+}
+
+
+.form{
+width:300px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,select{
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+input:focus{
+border-color:blue;
+outline:none;
+}
+
+
+
+.table-container{
+overflow-x:auto;
+margin-top:20px;
+}
+
+
+.course-table{
+width:100%;
+border-collapse:collapse;
+font-family:Arial;
+}
+
+
+.course-table th{
+background:#333;
+color:white;
+padding:12px;
+}
+
+
+.course-table td{
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+
+.course-table tbody tr:nth-child(even){
+background:#f2f2f2;
+}
+
+
+.course-table tbody tr:hover{
+background:#ddd;
+cursor:pointer;
+}
+
+
+.theory{
+border-left:6px solid blue;
+}
+
+.lab{
+border-left:6px solid green;
+}
+
+
+@media (max-width:768px){
+
+.course-table th,
+.course-table td{
+font-size:12px;
+padding:8px;
+}
+
+}
+
+
+body{
+font-family:'Poppins', sans-serif;
+margin:0;
+background:#f4f4f4;
+color:#333;
+}
+
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#333;
+color:white;
+padding:15px 40px;
+}
+
+.navbar ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.navbar a:hover{
+color:orange;
+}
+
+.logo{
+font-size:22px;
+}
+
+
+.hero{
+text-align:center;
+padding:40px;
+}
+
+.hero img{
+width:150px;
+border-radius:50%;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+section{
+padding:40px;
+text-align:center;
+}
+
+
+.project-container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:20px;
+width:250px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+
+.btn{
+padding:10px 20px;
+border:none;
+cursor:pointer;
+margin-top:10px;
+}
+
+.primary{
+background:blue;
+color:white;
+}
+
+.success{
+background:green;
+color:white;
+}
+
+
+.footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
+}
+
+.project-container{
+flex-direction:column;
+align-items:center;
+}
+
+}
