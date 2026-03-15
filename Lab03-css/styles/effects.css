@@ -15,3 +15,55 @@ height:200px;background-color:black;
 margin:20px;
 color:white
 }
+
+body{
+    font-family: Arial;
+    text-align:center;
+}
+
+div{
+    width:300px;
+    height:150px;
+    margin:20px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    color:white;
+}
+
+.color-box{
+    background-color: steelblue;
+}
+
+.gradient-box{
+    background: linear-gradient(to right, red, orange);
+}
+
+.radial-box{
+    background: radial-gradient(circle, rgb(95, 70, 95), black);
+}
+
+.image-repeat{
+    background-image: url("images\background\2.jpg");
+    background-repeat: repeat;
+}
+
+.image-no-repeat{
+    background-image: url("images\background\1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.multiple-bg{
+    background:
+        url("../images/3.png"),
+        linear-gradient(to right, blue, green);
+}
+
+.blend-bg{
+    background-image: url("../images/4.jpg");
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+}
