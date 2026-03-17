@@ -1,0 +1,85 @@
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+    html { font-size: 14px; }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.2rem; }
+}
+
+@media (min-width: 768px) {
+    html { font-size: 15px; }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+}
+
+@media (min-width: 1024px) {
+    html { font-size: 16px; }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.6rem; }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+}
+
+.responsive-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.responsive-table-wrapper table {
+    min-width: 600px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.responsive-table-wrapper th,
+.responsive-table-wrapper td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .card-table thead {
+        display: none;
+    }
+
+    .card-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .card-table td {
+        display: block;
+        border: none;
+        padding: 5px 0;
+    }
+
+    .card-table td::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+    }
+}
+
+.bg-responsive {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

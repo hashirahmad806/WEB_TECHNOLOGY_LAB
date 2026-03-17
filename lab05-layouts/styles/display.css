@@ -1,0 +1,72 @@
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.d-table {
+    display: table;
+}
+
+.d-table-row {
+    display: table-row;
+}
+
+.d-table-cell {
+    display: table-cell;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.visibility-visible {
+    visibility: visible;
+}
+
+.nav-inline li {
+    display: inline-block;
+    padding: 10px 15px;
+}
+
+.nav-block li {
+    display: block;
+    padding: 8px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-layout {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.table-layout .table-row {
+    display: table-row;
+}
+
+.table-layout .table-cell {
+    display: table-cell;
+    padding: 10px;
+    background: #f4f4f4;
+    vertical-align: top;
+}

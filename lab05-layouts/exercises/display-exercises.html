@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Property Exercises</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/display.css">
+    <style>
+        body { padding: 30px; }
+        .exercise { border: 1px solid #ddd; padding: 20px; margin-bottom: 30px; border-radius: 4px; }
+        .exercise h2 { background: #222; color: #fff; margin: -20px -20px 20px; padding: 10px 20px; font-size: 1rem; }
+        .demo-box { background: #d0e8ff; padding: 15px; margin: 5px; font-size: 0.9rem; }
+        .demo-inline { background: #ffe0b0; padding: 5px 10px; margin: 3px; }
+        .demo-inline-block { background: #d0ffd0; padding: 15px 20px; margin: 5px; width: 150px; text-align: center; }
+        label { font-size: 0.85rem; color: #888; display: block; margin-bottom: 5px; }
+
+        .table-layout-demo { display: table; width: 100%; border-spacing: 10px; }
+        .table-layout-demo .tr { display: table-row; }
+        .table-layout-demo .td { display: table-cell; background: #f0f0f0; padding: 15px; vertical-align: top; }
+
+        .dropdown-nav { list-style: none; padding: 0; background: #222; display: flex; }
+        .dropdown-nav > li { position: relative; }
+        .dropdown-nav > li > a { color: #fff; padding: 12px 18px; display: block; text-decoration: none; font-size: 0.9rem; }
+        .dropdown-nav > li > a:hover { background: #444; }
+        .dropdown-nav .sub-menu { display: none; position: absolute; top: 100%; left: 0; background: #333; min-width: 160px; list-style: none; padding: 0; z-index: 10; }
+        .dropdown-nav > li:hover .sub-menu { display: block; }
+        .dropdown-nav .sub-menu li a { color: #ccc; padding: 10px 18px; display: block; font-size: 0.85rem; text-decoration: none; }
+        .dropdown-nav .sub-menu li a:hover { background: #444; color: #fff; }
+
+        .vertical-nav { list-style: none; padding: 0; width: 200px; border: 1px solid #ddd; }
+        .vertical-nav li a { display: block; padding: 10px 15px; color: #333; text-decoration: none; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .vertical-nav li a:hover { background: #f0f0f0; }
+
+        @media (max-width: 600px) {
+            .demo-inline-block { width: 100%; display: block; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercise 1 &amp; 2: Display Property Values</h1>
+
+    <div class="exercise">
+        <h2>display: block</h2>
+        <label>Block elements take full width and stack vertically:</label>
+        <div class="demo-box">Block div 1 — takes full width</div>
+        <div class="demo-box">Block div 2 — stacks below</div>
+        <div class="demo-box">Block div 3 — stacks below</div>
+    </div>
+
+    <div class="exercise">
+        <h2>display: inline</h2>
+        <label>Inline elements sit side by side and ignore width/height:</label>
+        <span class="demo-inline">Inline span 1</span>
+        <span class="demo-inline">Inline span 2</span>
+        <span class="demo-inline">Inline span 3</span>
+    </div>
+
+    <div class="exercise">
+        <h2>display: inline-block</h2>
+        <label>Inline-block sits side by side but respects width and height:</label>
+        <span class="demo-inline-block">Item A</span>
+        <span class="demo-inline-block">Item B</span>
+        <span class="demo-inline-block">Item C</span>
+    </div>
+
+    <div class="exercise">
+        <h2>display: none vs visibility: hidden</h2>
+        <p>Box 1 (display: none) — takes no space:</p>
+        <div style="border:1px dashed #ccc;padding:5px;">
+            <span class="demo-inline">Before</span>
+            <span class="demo-inline" style="display:none;">HIDDEN (no space)</span>
+            <span class="demo-inline">After</span>
+        </div>
+        <br>
+        <p>Box 2 (visibility: hidden) — invisible but space is preserved:</p>
+        <div style="border:1px dashed #ccc;padding:5px;">
+            <span class="demo-inline">Before</span>
+            <span class="demo-inline" style="visibility:hidden;">HIDDEN (space kept)</span>
+            <span class="demo-inline">After</span>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>Horizontal Navigation (display: inline-block)</h2>
+        <ul style="list-style:none;padding:0;background:#222;">
+            <li style="display:inline-block;"><a href="#" style="color:#fff;padding:12px 18px;display:block;text-decoration:none;">Home</a></li>
+            <li style="display:inline-block;"><a href="#" style="color:#fff;padding:12px 18px;display:block;text-decoration:none;">About</a></li>
+            <li style="display:inline-block;"><a href="#" style="color:#fff;padding:12px 18px;display:block;text-decoration:none;">Services</a></li>
+            <li style="display:inline-block;"><a href="#" style="color:#fff;padding:12px 18px;display:block;text-decoration:none;">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="exercise">
+        <h2>Vertical Navigation (display: block)</h2>
+        <ul class="vertical-nav">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="exercise">
+        <h2>Dropdown Menu (display: none / block on hover)</h2>
+        <ul class="dropdown-nav">
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Services &#9660;</a>
+                <ul class="sub-menu">
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Development</a></li>
+                    <li><a href="#">SEO</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Products &#9660;</a>
+                <ul class="sub-menu">
+                    <li><a href="#">Category A</a></li>
+                    <li><a href="#">Category B</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="exercise">
+        <h2>display: table (Table Layout Without Table Markup)</h2>
+        <div class="table-layout-demo">
+            <div class="tr">
+                <div class="td"><strong>Column 1</strong><br>Cell content here</div>
+                <div class="td"><strong>Column 2</strong><br>Cell content here</div>
+                <div class="td"><strong>Column 3</strong><br>Cell content here</div>
+            </div>
+            <div class="tr">
+                <div class="td">Row 2, Col 1</div>
+                <div class="td">Row 2, Col 2</div>
+                <div class="td">Row 2, Col 3</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

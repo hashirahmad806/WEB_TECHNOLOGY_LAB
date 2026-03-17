@@ -1,0 +1,92 @@
+.grid {
+    display: grid;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-full { grid-column: 1 / -1; }
+
+.row-span-2 { grid-row: span 2; }
+.row-span-3 { grid-row: span 3; }
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    min-height: 100vh;
+}
+
+.dashboard-header { grid-area: header; }
+.dashboard-sidebar { grid-area: sidebar; }
+.dashboard-main { grid-area: main; }
+.dashboard-footer { grid-area: footer; }
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 10px;
+}
+
+.photo-gallery .photo-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.holy-grail-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "left main right"
+        "footer footer footer";
+    min-height: 100vh;
+    gap: 0;
+}
+
+.hgg-header { grid-area: header; background: #222; color: #fff; padding: 20px; }
+.hgg-left { grid-area: left; background: #f0f0f0; padding: 20px; }
+.hgg-main { grid-area: main; padding: 20px; }
+.hgg-right { grid-area: right; background: #f0f0f0; padding: 20px; }
+.hgg-footer { grid-area: footer; background: #222; color: #fff; padding: 20px; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}

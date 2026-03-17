@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query Exercises</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/media-queries.css">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; }
+        .exercise { border: 1px solid #ddd; padding: 20px; margin-bottom: 30px; border-radius: 4px; }
+        .exercise h2 { background: #222; color: #fff; margin: -20px -20px 20px; padding: 10px 20px; font-size: 1rem; }
+
+        .breakpoint-bar { padding: 12px 18px; text-align: center; font-weight: bold; font-size: 0.9rem; color: #fff; margin-bottom: 10px; }
+
+        @media (max-width: 767px) {
+            .breakpoint-bar { background: #e74c3c; }
+            .breakpoint-bar::before { content: "Mobile (< 768px)"; }
+            .rp-text { font-size: 0.9rem; }
+            .rp-heading { font-size: 1.4rem; }
+            .rp-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+            .bp-nav ul { flex-direction: column; }
+            .bp-nav ul li a { border-bottom: 1px solid #444; }
+            .show-mobile-only { display: block; }
+            .hide-on-mobile { display: none; }
+            .layout-demo-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .breakpoint-bar { background: #f39c12; }
+            .breakpoint-bar::before { content: "Tablet (768px – 1023px)"; }
+            .rp-text { font-size: 1rem; }
+            .rp-heading { font-size: 1.8rem; }
+            .rp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .show-mobile-only { display: none; }
+            .hide-on-mobile { display: block; }
+            .layout-demo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .breakpoint-bar { background: #27ae60; }
+            .breakpoint-bar::before { content: "Desktop (>= 1024px)"; }
+            .rp-text { font-size: 1.05rem; }
+            .rp-heading { font-size: 2.2rem; }
+            .rp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .show-mobile-only { display: none; }
+            .hide-on-mobile { display: block; }
+            .layout-demo-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .rp-card { background: #f0f0f0; padding: 20px; text-align: center; }
+        .rp-nav { background: #222; }
+        .rp-nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        .rp-nav ul li a { color: #fff; padding: 12px 16px; display: block; text-decoration: none; font-size: 0.88rem; }
+
+        .bp-nav { background: #333; }
+        .bp-nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        .bp-nav ul li a { color: #fff; padding: 12px 16px; display: block; text-decoration: none; font-size: 0.88rem; }
+
+        .orient-box { padding: 20px; background: #e8f0fe; font-size: 0.9rem; }
+        @media (orientation: portrait)  { .orient-box { background: #d0ffd0; } .orient-box::before { content: "Portrait orientation detected"; font-weight: bold; display: block; margin-bottom: 5px; } }
+        @media (orientation: landscape) { .orient-box { background: #ffe0b0; } .orient-box::before { content: "Landscape orientation detected"; font-weight: bold; display: block; margin-bottom: 5px; } }
+
+        .dark-demo { padding: 20px; border: 1px solid #ccc; }
+        @media (prefers-color-scheme: dark)  { .dark-demo { background: #1e1e1e; color: #f0f0f0; border-color: #444; } .dark-demo::before { content: "Dark mode active"; font-weight: bold; display: block; margin-bottom: 5px; color: #adf; } }
+        @media (prefers-color-scheme: light) { .dark-demo { background: #fff; color: #111; } .dark-demo::before { content: "Light mode active"; font-weight: bold; display: block; margin-bottom: 5px; } }
+
+        .motion-demo { padding: 15px; background: #f8f8f8; }
+        .animated-box { width: 60px; height: 60px; background: #0066cc; animation: slide 2s infinite alternate; }
+        @keyframes slide { from { transform: translateX(0); } to { transform: translateX(200px); } }
+        @media (prefers-reduced-motion: reduce) { .animated-box { animation: none; } .motion-demo::before { content: "Reduced motion: animation disabled"; display: block; margin-bottom: 10px; font-size: 0.85rem; color: #888; } }
+
+        .contrast-demo { padding: 15px; background: #fff; color: #888; border: 1px solid #eee; font-size: 0.9rem; }
+        @media (prefers-contrast: more) { .contrast-demo { background: #000; color: #fff; border: 2px solid #fff; font-weight: bold; } }
+
+        @media print {
+            .exercise { border: 1px solid #000; page-break-inside: avoid; }
+            .breakpoint-bar { background: #000 !important; -webkit-print-color-adjust: exact; }
+            .no-print-element { display: none; }
+        }
+
+        .utility-show { display: none; font-size: 0.88rem; padding: 8px 12px; background: #eee; margin-bottom: 6px; }
+        @media (max-width: 767px) { .util-mobile { display: block; background: #fde8e8; } }
+        @media (min-width: 768px) and (max-width: 1023px) { .util-tablet { display: block; background: #fef9e7; } }
+        @media (min-width: 1024px) { .util-desktop { display: block; background: #e8f8e8; } }
+    </style>
+</head>
+<body>
+    <h1>Exercise 13–15: Media Queries &amp; Responsive Design</h1>
+
+    <div class="exercise">
+        <h2>Exercise 13: Current Breakpoint Indicator</h2>
+        <div class="breakpoint-bar"></div>
+        <p style="font-size:0.9rem;color:#555;">Resize your browser window to see the breakpoint change.</p>
+    </div>
+
+    <div class="exercise">
+        <h2>Responsive Typography Scaling</h2>
+        <h1 class="rp-heading">Responsive Heading</h1>
+        <p class="rp-text">This paragraph text and heading scale based on the current viewport width using media queries. Mobile is smaller, tablet is medium, desktop is largest.</p>
+    </div>
+
+    <div class="exercise">
+        <h2>Responsive Grid Layout (1 / 2 / 4 columns)</h2>
+        <div class="rp-grid">
+            <div class="rp-card">Card 1</div>
+            <div class="rp-card">Card 2</div>
+            <div class="rp-card">Card 3</div>
+            <div class="rp-card">Card 4</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>Responsive Navigation (Stacked on Mobile)</h2>
+        <nav class="bp-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="exercise">
+        <h2>Show / Hide at Breakpoints</h2>
+        <div class="show-mobile-only" style="background:#fde8e8;padding:10px;font-size:0.9rem;">This element is visible ONLY on mobile.</div>
+        <div class="hide-on-mobile" style="background:#e8f8e8;padding:10px;font-size:0.9rem;">This element is hidden on mobile, visible on tablet and desktop.</div>
+    </div>
+
+    <div class="exercise">
+        <h2>Responsive Utility Classes (Show per Breakpoint)</h2>
+        <div class="utility-show util-mobile">util-mobile — visible only on mobile</div>
+        <div class="utility-show util-tablet">util-tablet — visible only on tablet</div>
+        <div class="utility-show util-desktop">util-desktop — visible only on desktop</div>
+    </div>
+
+    <div class="exercise">
+        <h2>Device Orientation Media Query</h2>
+        <div class="orient-box">
+            <p>This box detects your device orientation using <code>@media (orientation: portrait/landscape)</code>.</p>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>prefers-color-scheme (Dark / Light Mode)</h2>
+        <div class="dark-demo">
+            <p>This box automatically adapts to your system's dark or light mode preference.</p>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>prefers-reduced-motion (Accessibility)</h2>
+        <div class="motion-demo">
+            <div class="animated-box"></div>
+        </div>
+        <p style="font-size:0.85rem;color:#888;margin-top:10px;">If your OS has "Reduce Motion" enabled, the animation above is disabled.</p>
+    </div>
+
+    <div class="exercise">
+        <h2>prefers-contrast (High Contrast Mode)</h2>
+        <div class="contrast-demo">
+            This text adapts to high contrast mode using <code>prefers-contrast: more</code>.
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 14: Mobile-First Approach</h2>
+        <p style="font-size:0.9rem;">Mobile-first means base styles target mobile, then larger screens are layered with <code>min-width</code> queries:</p>
+        <pre style="background:#f5f5f5;padding:15px;font-size:0.82rem;overflow-x:auto;">
+/* Base: mobile styles */
+.element { font-size: 14px; padding: 10px; }
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .element { font-size: 16px; padding: 15px; }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    .element { font-size: 18px; padding: 20px; }
+}
+        </pre>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 15: Responsive Images</h2>
+        <p style="font-size:0.9rem;">Using <code>srcset</code> and <code>sizes</code> for responsive images:</p>
+        <pre style="background:#f5f5f5;padding:15px;font-size:0.82rem;overflow-x:auto;">
+&lt;img
+    src="image-800.jpg"
+    srcset="image-400.jpg 400w,
+            image-800.jpg 800w,
+            image-1200.jpg 1200w"
+    sizes="(max-width: 600px) 100vw,
+           (max-width: 1024px) 50vw,
+           33vw"
+    alt="Responsive image"&gt;
+        </pre>
+        <p style="font-size:0.9rem;">Using <code>picture</code> element for art direction:</p>
+        <pre style="background:#f5f5f5;padding:15px;font-size:0.82rem;overflow-x:auto;">
+&lt;picture&gt;
+    &lt;source media="(min-width: 1024px)" srcset="image-desktop.jpg"&gt;
+    &lt;source media="(min-width: 768px)"  srcset="image-tablet.jpg"&gt;
+    &lt;img src="image-mobile.jpg" alt="Art direction example"&gt;
+&lt;/picture&gt;
+        </pre>
+        <div style="width:100%;height:150px;background:linear-gradient(135deg,#444,#888);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.9rem;">
+            Responsive Image Placeholder (max-width: 100%)
+        </div>
+    </div>
+</body>
+</html>

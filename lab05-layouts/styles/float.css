@@ -1,0 +1,74 @@
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-none {
+    float: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clear {
+    clear: both;
+}
+
+.float-img-left {
+    float: left;
+    margin: 0 20px 15px 0;
+    max-width: 40%;
+}
+
+.float-img-right {
+    float: right;
+    margin: 0 0 15px 20px;
+    max-width: 40%;
+}
+
+.two-col-left {
+    float: left;
+    width: 65%;
+    padding-right: 20px;
+}
+
+.two-col-right {
+    float: right;
+    width: 35%;
+}
+
+.three-col {
+    float: left;
+    width: 33.333%;
+    padding: 0 10px;
+}
+
+.float-grid-col-2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.float-grid-col-3 {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+}
+
+.float-grid-col-4 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.float-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}

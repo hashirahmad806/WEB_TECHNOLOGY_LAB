@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Exercises</title>
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/grid.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+      .exercise {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 4px;
+      }
+      .exercise h2 {
+        background: #222;
+        color: #fff;
+        margin: -20px -20px 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+      .grid-item {
+        background: #d0e8ff;
+        border: 1px solid #90c0ee;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      .grid-item-green {
+        background: #d0ffd0;
+        border: 1px solid #90ee90;
+      }
+      .grid-item-orange {
+        background: #ffe8c0;
+        border: 1px solid #eec890;
+      }
+      label {
+        font-size: 0.82rem;
+        color: #888;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .named-areas-demo {
+        display: grid;
+        grid-template-columns: 150px 1fr 150px;
+        grid-template-rows: 60px 1fr 50px;
+        grid-template-areas:
+          "header header header"
+          "left   main   right"
+          "footer footer footer";
+        gap: 5px;
+        height: 280px;
+      }
+      .na-header {
+        grid-area: header;
+        background: #1a1a1a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+      }
+      .na-left {
+        grid-area: left;
+        background: #d0e8ff;
+        padding: 15px;
+        font-size: 0.85rem;
+      }
+      .na-main {
+        grid-area: main;
+        background: #f8f8f8;
+        padding: 15px;
+        font-size: 0.85rem;
+      }
+      .na-right {
+        grid-area: right;
+        background: #ffe0d0;
+        padding: 15px;
+        font-size: 0.85rem;
+      }
+      .na-footer {
+        grid-area: footer;
+        background: #1a1a1a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        font-size: 0.85rem;
+      }
+
+      .span-demo {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .span-full {
+        grid-column: 1 / -1;
+      }
+      .span-two {
+        grid-column: span 2;
+      }
+      .row-span-two {
+        grid-row: span 2;
+      }
+
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 120px;
+        gap: 8px;
+      }
+      .photo-item {
+        background: linear-gradient(135deg, #555, #999);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.8rem;
+      }
+      .photo-featured {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .minmax-demo {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
+        gap: 10px;
+      }
+
+      .autofit-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .autofill-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .align-demo {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        height: 120px;
+        background: #f0f0f0;
+        padding: 10px;
+      }
+      .align-start {
+        justify-items: start;
+        align-items: start;
+      }
+      .align-center {
+        justify-items: center;
+        align-items: center;
+      }
+      .align-end {
+        justify-items: end;
+        align-items: end;
+      }
+
+      @media (max-width: 767px) {
+        .named-areas-demo {
+          grid-template-columns: 1fr;
+          grid-template-areas: "header" "main" "left" "right" "footer";
+          height: auto;
+        }
+        .span-demo {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .photo-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .photo-featured {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercise 10, 11 &amp; 12: CSS Grid Layout System</h1>
+
+    <div class="exercise">
+      <h2>Basic Grid — grid-template-columns with repeat()</h2>
+      <label>3 equal columns using repeat(3, 1fr):</label>
+      <div
+        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px"
+      >
+        <div class="grid-item">Col 1</div>
+        <div class="grid-item">Col 2</div>
+        <div class="grid-item">Col 3</div>
+        <div class="grid-item">Col 4</div>
+        <div class="grid-item">Col 5</div>
+        <div class="grid-item">Col 6</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Mixed Column Widths</h2>
+      <label>grid-template-columns: 200px 1fr 150px</label>
+      <div
+        style="display: grid; grid-template-columns: 200px 1fr 150px; gap: 10px"
+      >
+        <div class="grid-item">Fixed 200px</div>
+        <div class="grid-item grid-item-green">Flexible 1fr</div>
+        <div class="grid-item grid-item-orange">Fixed 150px</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Named Grid Areas</h2>
+      <div class="named-areas-demo">
+        <div class="na-header"><strong>Header</strong></div>
+        <div class="na-left"><strong>Left</strong><br />Sidebar</div>
+        <div class="na-main">
+          <strong>Main Content</strong><br />Primary area using grid-area: main
+        </div>
+        <div class="na-right"><strong>Right</strong><br />Sidebar</div>
+        <div class="na-footer"><strong>Footer</strong></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Column and Row Spanning</h2>
+      <div class="span-demo">
+        <div class="grid-item span-full">grid-column: 1 / -1 (full width)</div>
+        <div class="grid-item span-two">grid-column: span 2</div>
+        <div class="grid-item">Col 3</div>
+        <div class="grid-item">Col 4</div>
+        <div
+          class="grid-item row-span-two grid-item-orange"
+          style="background: #ffe8c0"
+        >
+          grid-row: span 2
+        </div>
+        <div class="grid-item">Normal</div>
+        <div class="grid-item">Normal</div>
+        <div class="grid-item">Normal</div>
+        <div class="grid-item">Normal</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>minmax() Function</h2>
+      <label>Columns use minmax(150px, 1fr) — min 150px, max flexible:</label>
+      <div class="minmax-demo">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>auto-fit vs auto-fill</h2>
+      <label>auto-fit — columns stretch to fill empty space:</label>
+      <div class="autofit-demo">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+      </div>
+      <br />
+      <label>auto-fill — empty columns are preserved:</label>
+      <div class="autofill-demo">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Fractional Units (fr)</h2>
+      <label
+        >grid-template-columns: 1fr 2fr 1fr — middle column gets double
+        space:</label
+      >
+      <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 10px">
+        <div class="grid-item">1fr</div>
+        <div class="grid-item grid-item-green">2fr (double)</div>
+        <div class="grid-item">1fr</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>justify-self &amp; align-self (Individual Item Alignment)</h2>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          height: 100px;
+          background: #f0f0f0;
+          padding: 10px;
+        "
+      >
+        <div class="grid-item" style="justify-self: start; align-self: start">
+          start
+        </div>
+        <div class="grid-item" style="justify-self: center; align-self: center">
+          center
+        </div>
+        <div class="grid-item" style="justify-self: end; align-self: end">
+          end
+        </div>
+        <div
+          class="grid-item"
+          style="justify-self: stretch; align-self: stretch"
+        >
+          stretch
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Photo Gallery with Grid</h2>
+      <div class="photo-gallery">
+        <div class="photo-item photo-featured">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            style="width: fit-content; height: fit-content"
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Photo 2"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>gap (Row and Column Gutters)</h2>
+      <label>gap: 20px — equal row and column gap:</label>
+      <div
+        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px"
+      >
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+      </div>
+      <br />
+      <label
+        >row-gap: 30px; column-gap: 5px — different row and column gaps:</label
+      >
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          row-gap: 30px;
+          column-gap: 5px;
+        "
+      >
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 05 & 06 - CSS Layout Techniques & Responsive Design</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
+        header { background: #1a1a1a; color: #fff; padding: 30px 40px; }
+        header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        header p { color: #aaa; font-size: 0.9rem; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: #555; margin-bottom: 20px; border-bottom: 2px solid #ddd; padding-bottom: 8px; margin-top: 40px; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: #fff; border: 1px solid #ddd; padding: 20px; }
+        .card h3 { font-size: 1rem; margin-bottom: 8px; }
+        .card p { font-size: 0.85rem; color: #666; margin-bottom: 15px; }
+        .card a { display: inline-block; background: #1a1a1a; color: #fff; padding: 8px 16px; font-size: 0.82rem; text-decoration: none; }
+        .card a:hover { background: #444; }
+        .badge { display: inline-block; font-size: 0.72rem; padding: 2px 8px; border-radius: 2px; margin-bottom: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-float { background: #fde8e8; color: #c0392b; }
+        .badge-position { background: #e8f0fe; color: #1a56db; }
+        .badge-flex { background: #e8fde8; color: #1a8a3c; }
+        .badge-grid { background: #fef9e7; color: #a04000; }
+        .badge-media { background: #f0e8fe; color: #6b21a8; }
+        footer { background: #1a1a1a; color: #888; text-align: center; padding: 20px; font-size: 0.85rem; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lab 05 &amp; 06 — CSS Layout Techniques &amp; Responsive Design</h1>
+        <p>CS 224L Web Technologies &bull; Department of Computer Science, UET Peshawar</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section-title">Layouts</div>
+        <div class="cards">
+            <div class="card">
+                <span class="badge badge-float">Float</span>
+                <h3>Magazine Float Layout</h3>
+                <p>Multi-column magazine layout built using CSS floats with responsive behavior and clearfix techniques.</p>
+                <a href="layouts/magazine-float.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-grid">Comparison</span>
+                <h3>Holy Grail Comparison</h3>
+                <p>Holy grail layout implemented using Float, Flexbox, and CSS Grid — with a comparison table.</p>
+                <a href="layouts/holy-grail-comparison.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Dashboard Grid</h3>
+                <p>Responsive admin dashboard using CSS Grid for layout and Flexbox for component internals.</p>
+                <a href="layouts/dashboard-grid.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-flex">Mixed</span>
+                <h3>Portfolio Mixed</h3>
+                <p>Responsive portfolio website combining Grid, Flexbox, Positioning, and Media Queries.</p>
+                <a href="layouts/portfolio-mixed.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-media">Responsive</span>
+                <h3>Responsive Demo</h3>
+                <p>Demonstrates breakpoints, typography scaling, navigation changes, and preference media queries.</p>
+                <a href="layouts/responsive-demo.html">Open</a>
+            </div>
+        </div>
+
+        <div class="section-title">Exercises</div>
+        <div class="cards">
+            <div class="card">
+                <span class="badge badge-position">Display</span>
+                <h3>Display Exercises</h3>
+                <p>Exercise 1 &amp; 2: All display property values, navigation patterns, dropdowns, and table layout.</p>
+                <a href="exercises/display-exercises.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-float">Float</span>
+                <h3>Float Exercises</h3>
+                <p>Exercise 3 &amp; 4: Image float, two-column, three-column, grid system, and clearfix demonstration.</p>
+                <a href="exercises/float-exercises.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-position">Position</span>
+                <h3>Position Exercises</h3>
+                <p>Exercise 5 &amp; 6: All position values, z-index, modal dialog, sticky header, and tooltips.</p>
+                <a href="exercises/position-exercises.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-flex">Flexbox</span>
+                <h3>Flexbox Exercises</h3>
+                <p>Exercise 7, 8 &amp; 9: Flex container and item properties, nav bar, card layout, and form layout.</p>
+                <a href="exercises/flexbox-exercises.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Grid Exercises</h3>
+                <p>Exercise 10, 11 &amp; 12: Grid container, item properties, named areas, spanning, minmax, and auto-fit.</p>
+                <a href="exercises/grid-exercises.html">Open</a>
+            </div>
+            <div class="card">
+                <span class="badge badge-media">Media</span>
+                <h3>Media Query Exercises</h3>
+                <p>Exercise 13, 14 &amp; 15: Breakpoints, responsive images, mobile-first, orientation, and preference queries.</p>
+                <a href="exercises/media-query-exercises.html">Open</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Lab 05 &amp; 06 &mdash; CSS Layout Techniques &amp; Responsive Design &mdash; CS 224L Web Technologies</p>
+    </footer>
+</body>
+</html>

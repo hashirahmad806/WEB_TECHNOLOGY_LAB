@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Demo</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; }
+        header { background: #222; color: #fff; padding: 15px 30px; display: flex; align-items: center; justify-content: space-between; }
+        header h1 { font-size: 1.2rem; }
+        .breakpoint-indicator { padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; background: #555; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+        .demo-section { margin-bottom: 50px; }
+        .demo-section h2 { font-size: 1.3rem; border-bottom: 2px solid #222; padding-bottom: 8px; margin-bottom: 20px; }
+        .grid-demo { display: grid; gap: 15px; }
+        .grid-item { background: #e8e8f0; padding: 20px; text-align: center; border-radius: 4px; font-size: 0.9rem; color: #444; }
+        .text-scale { margin-bottom: 15px; }
+        .nav-demo ul { list-style: none; padding: 0; margin: 0; background: #333; }
+        .nav-demo ul li a { color: #fff; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.9rem; }
+        .image-demo { width: 100%; height: 200px; background: linear-gradient(135deg, #444, #888); display: flex; align-items: center; justify-content: center; color: #fff; }
+        .current-screen { font-size: 0.85rem; color: #666; margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-left: 4px solid #222; }
+
+        @media (max-width: 767px) {
+            .grid-demo { grid-template-columns: 1fr; }
+            .breakpoint-indicator { background: #e74c3c; }
+            .breakpoint-indicator::after { content: "Mobile (< 768px)"; }
+            .text-scale h1 { font-size: 1.6rem; }
+            .text-scale p { font-size: 0.9rem; }
+            .nav-demo ul li { display: block; }
+            .nav-demo ul li a { border-bottom: 1px solid #444; }
+            .current-screen::before { content: "Current: Mobile Layout"; font-weight: bold; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .grid-demo { grid-template-columns: repeat(2, 1fr); }
+            .breakpoint-indicator { background: #f39c12; }
+            .breakpoint-indicator::after { content: "Tablet (768px - 1023px)"; }
+            .text-scale h1 { font-size: 2rem; }
+            .text-scale p { font-size: 1rem; }
+            .nav-demo ul li { display: inline-block; }
+            .current-screen::before { content: "Current: Tablet Layout"; font-weight: bold; }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-demo { grid-template-columns: repeat(4, 1fr); }
+            .breakpoint-indicator { background: #27ae60; }
+            .breakpoint-indicator::after { content: "Desktop (>= 1024px)"; }
+            .text-scale h1 { font-size: 2.5rem; }
+            .text-scale p { font-size: 1.1rem; }
+            .nav-demo ul li { display: inline-block; }
+            .current-screen::before { content: "Current: Desktop Layout"; font-weight: bold; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dark-mode-demo { background: #1a1a1a; color: #f0f0f0; padding: 20px; }
+        }
+        @media (prefers-color-scheme: light) {
+            .dark-mode-demo { background: #fff; color: #111; padding: 20px; border: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Demo</h1>
+        <span class="breakpoint-indicator"></span>
+    </header>
+    <div class="container">
+        <div class="current-screen"></div>
+
+        <div class="demo-section">
+            <h2>1. Responsive Grid (1 / 2 / 4 columns)</h2>
+            <div class="grid-demo">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>2. Responsive Typography</h2>
+            <div class="text-scale">
+                <h1>Page Heading</h1>
+                <p>This paragraph text scales based on the viewport. On mobile it is smaller, on desktop it grows. Responsive typography improves readability at every screen size.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>3. Responsive Navigation (Stacked → Horizontal)</h2>
+            <div class="nav-demo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>4. Responsive Image</h2>
+            <div class="image-demo">Responsive Image Placeholder (width: 100%)</div>
+        </div>
+
+        <div class="demo-section">
+            <h2>5. Dark / Light Mode (prefers-color-scheme)</h2>
+            <div class="dark-mode-demo">
+                <p>This box automatically switches between dark and light mode based on your system preference using <code>prefers-color-scheme</code> media query.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

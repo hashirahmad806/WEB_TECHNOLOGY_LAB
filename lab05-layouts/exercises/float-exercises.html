@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float Exercises</title>
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/float.css" />
+    <style>
+      body {
+        padding: 30px;
+      }
+      .exercise {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 4px;
+      }
+      .exercise h2 {
+        background: #222;
+        color: #fff;
+        margin: -20px -20px 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+      .placeholder-img {
+        background: linear-gradient(135deg, #888, #aaa);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.85rem;
+      }
+      .col-box {
+        background: #e8f0fe;
+        padding: 15px;
+        min-height: 100px;
+      }
+      .col-box h3 {
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+      .col-box p {
+        font-size: 0.87rem;
+        color: #555;
+      }
+
+      .float-img-left-demo {
+        float: left;
+        width: 180px;
+        height: 130px;
+        margin: 0 20px 10px 0;
+      }
+      .float-img-right-demo {
+        float: right;
+        width: 180px;
+        height: 130px;
+        margin: 0 0 10px 20px;
+      }
+
+      .two-col-wrap::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .col-main {
+        float: left;
+        width: 65%;
+        padding-right: 20px;
+      }
+      .col-side {
+        float: right;
+        width: 35%;
+      }
+
+      .three-col-wrap::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .col-third {
+        float: left;
+        width: 33.333%;
+        padding: 0 10px;
+      }
+
+      .grid-wrap::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .grid-item {
+        float: left;
+        width: 25%;
+        padding: 8px;
+      }
+      .grid-item-inner {
+        background: #e8f0fe;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      .problem-demo::after {
+        content: "";
+        display: table;
+        clear: none;
+      }
+      .fix-demo::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .float-box {
+        float: left;
+        width: 80px;
+        height: 60px;
+        background: #aaa;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.8rem;
+      }
+      .parent-box {
+        border: 2px solid #cc0000;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .parent-box-fixed {
+        border: 2px solid #00aa00;
+        padding: 10px;
+      }
+
+      @media (max-width: 767px) {
+        .col-main,
+        .col-side {
+          float: none;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 15px;
+        }
+        .col-third {
+          float: none;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 15px;
+        }
+        .grid-item {
+          float: none;
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercise 3 and 4: Float-Based Layouts</h1>
+
+    <div class="exercise">
+      <h2>Float Image Left with Text Wrapping</h2>
+      <div class="clearfix">
+        <div class="placeholder-img float-img-left-demo">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt=""
+          />
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Float Image Right with Text Wrapping</h2>
+      <div class="clearfix">
+        <div class="placeholder-img float-img-right-demo">
+          <img
+            src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+            alt=""
+          />
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Two-Column Float Layout (65% / 35%)</h2>
+      <div class="two-col-wrap">
+        <div class="col-main col-box">
+          <h3>Main Content (65%)</h3>
+          <p>
+            This is the main content area. It uses float: left with 65% width.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+        <div class="col-side col-box">
+          <h3>Sidebar (35%)</h3>
+          <p>Sidebar content using float: right with 35% width.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Three-Column Float Layout</h2>
+      <div class="three-col-wrap">
+        <div class="col-third col-box">
+          <h3>Column 1</h3>
+          <p>First column content using float: left with 33.333% width.</p>
+        </div>
+        <div class="col-third col-box">
+          <h3>Column 2</h3>
+          <p>Second column content with identical float and width settings.</p>
+        </div>
+        <div class="col-third col-box">
+          <h3>Column 3</h3>
+          <p>Third column content. All three float left at equal width.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Float-Based Grid System (4 columns)</h2>
+      <div class="grid-wrap">
+        <div class="grid-item"><div class="grid-item-inner">Cell 1</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 2</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 3</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 4</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 5</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 6</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 7</div></div>
+        <div class="grid-item"><div class="grid-item-inner">Cell 8</div></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h2>Float Collapse Problem vs Clearfix Solution</h2>
+      <p>
+        <strong>Problem:</strong> Parent with red border collapses when children
+        are floated:
+      </p>
+      <div class="parent-box problem-demo">
+        <div class="float-box">Float</div>
+        <div class="float-box">Float</div>
+        <div class="float-box">Float</div>
+      </div>
+      <p>
+        <strong>Fixed:</strong> Parent with green border uses clearfix — height
+        is restored:
+      </p>
+      <div class="parent-box-fixed fix-demo">
+        <div class="float-box">Float</div>
+        <div class="float-box">Float</div>
+        <div class="float-box">Float</div>
+      </div>
+    </div>
+  </body>
+</html>
